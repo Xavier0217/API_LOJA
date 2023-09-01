@@ -25,6 +25,9 @@ public class TabelaProdutos {
         this.produtos.add(lapis);
         this.produtos.add(apontador);
         this.produtos.add(caderno);
+        this.produtos.add(corretivo);
+        this.produtos.add(canetinha);
+        this.produtos.add(lapisDeCor);
     }
 
     public List<Produto> getProdutos() {
@@ -53,5 +56,14 @@ public class TabelaProdutos {
         novoProduto.setId(proximoId);
         this.produtos.add(novoProduto);
         return novoProduto;
+    }
+
+    public void atualizarProduto(int produtoId, Produto produtoAtualizar) {
+        Produto produtoProcurado = this.bucarProdutoPeloId(produtoId);
+        if (produtoProcurado != null) {
+            produtoProcurado.setNome(produtoAtualizar.getNome());
+            produtoProcurado.setDescricao(produtoAtualizar.getDescricao());
+            produtoProcurado.setValorUnitario(produtoAtualizar.getValorUnitario());
+        }
     }
 }
